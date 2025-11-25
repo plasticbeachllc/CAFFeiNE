@@ -12,7 +12,13 @@ import {
   readAllBlocksFromDoc,
   readAllDocIdsFromRootDoc,
 } from '@affine/reader/dist';
-import { applyUpdate, Array as YArray, Doc as YDoc, Map as YMap } from 'yjs';
+import {
+  applyUpdate,
+  Array as YArray,
+  Doc as YDoc,
+  Map as YMap,
+  Text as YText,
+} from 'yjs';
 
 export interface PageDocContent {
   title: string;
@@ -209,7 +215,9 @@ export function parseDocToMarkdownFromDocSnapshot(
   });
   applyUpdate(ydoc, docSnapshot);
 
-  const parsed = parseDocToMarkdown({
+  const blocks = ydoc.getMap('blocks');
+
+  let parsed = parseDocToMarkdown({
     workspaceId,
     doc: ydoc,
     buildBlobUrl: (blobId: string) => {

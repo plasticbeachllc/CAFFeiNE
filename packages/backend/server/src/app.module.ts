@@ -30,6 +30,7 @@ import { RateLimiterModule } from './base/throttler';
 import { WebSocketModule } from './base/websocket';
 import { AccessTokenModule } from './core/access-token';
 import { AuthModule } from './core/auth';
+import { CaffeineModule } from './core/caffeine/caffeine.module';
 import { CommentModule } from './core/comment';
 import { ServerConfigModule, ServerConfigResolverModule } from './core/config';
 import { DocStorageModule } from './core/doc';
@@ -46,6 +47,7 @@ import { StorageModule } from './core/storage';
 import { SyncModule } from './core/sync';
 import { UserModule } from './core/user';
 import { VersionModule } from './core/version';
+import { WebhookModule } from './core/webhook/webhook.module';
 import { WorkspaceModule } from './core/workspaces';
 import { Env } from './env';
 import { ModelsModule } from './models';
@@ -168,7 +170,9 @@ export function buildAppModule(env: Env) {
       QuotaModule,
       DocStorageModule,
       NotificationModule,
-      MailModule
+      MailModule,
+      WebhookModule,
+      CaffeineModule
     )
     // renderer server only
     .useIf(() => env.flavors.renderer, DocRendererModule)

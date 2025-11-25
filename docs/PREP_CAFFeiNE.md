@@ -6,7 +6,7 @@ Based on AFFiNE's architecture, here's what would be required:
 
 ### **Core Technical Requirements**
 
-#### **1. Understanding BlockSuite's Internal APIs**
+#### Understanding BlockSuite's Internal APIs
 
 ```javascript
 // Key BlockSuite components we'd need to interface with
@@ -19,31 +19,26 @@ import {
 } from '@blocksuite/affine';
 ```
 
-#### **2. Reverse-Engineering the C3PM Format**
-
-AFFiNE uses C3PM (CRDT Collaborative Content Package Model) for document storage:
-
 ### **Architecture for Custom API**
 
 #### **&#x20;Express.js Middleware Layer**
 
-If AFFiNE supports plugins (needs verification):
-
 ```javascript
-// AFFiNE plugin that adds import endpoints
-class MarkdownImportPlugin {
-  setup(app) {
-    app.post('/plugin/markdown-import', this.handleImport.bind(this));
-  }
+// Custom API server that sits between GitHub and AFFiNE
+const express = require('express');
+const { AFFiNEImporter } = require('./affine-importer');
 
-  async handleImport(request) {
-    // Use internal BlockSuite APIs
-    const workspace = this.getWorkspace();
-    const page = workspace.createPage();
-    await this.convertMarkdownToBlocks(request.markdown, page);
-    return { pageId: page.id };
+const app = express();
+app.post('/api/import/markdown', async (req, res) => {
+  const { collectionId, markdownContent, metadata } = req.body;
+
+  try {
+    const result = await AFFiNEImporter.importToCollection(collectionId, markdownContent, metadata);
+    res.json({ success: true, pageId: result.pageId });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
-}
+});
 ```
 
 ### **Key Technical Challenges**
@@ -81,24 +76,6 @@ class MarkdownConverter {
       { type: 'heading', props: { level: 1, text: 'Title' } },
       { type: 'paragraph', props: { text: 'Content' } },
     ];
-  }
-}
-```
-
-#### **3. File Attachment Handling**
-
-```javascript
-class AttachmentHandler {
-  async addAttachment(page, fileBuffer, filename) {
-    // Upload to blob storage
-    const blobId = await this.uploadToBlobStorage(fileBuffer);
-
-    // Create attachment block
-    return page.addBlock('attachment', {
-      blobId,
-      filename,
-      // Other attachment properties
-    });
   }
 }
 ```

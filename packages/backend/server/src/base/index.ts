@@ -26,7 +26,7 @@ export { AFFiNELogger } from './logger';
 export { CallMetric, metrics } from './metrics';
 export { Lock, Locker, Mutex, RequestMutex } from './mutex';
 export * from './nestjs';
-export { type PrismaTransaction } from './prisma';
+export { PrismaModule, type PrismaTransaction } from './prisma';
 export * from './storage';
 export {
   autoMetadata,

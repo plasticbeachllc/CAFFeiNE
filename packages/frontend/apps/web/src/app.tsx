@@ -92,6 +92,32 @@ window.addEventListener('focus', () => {
 });
 frameworkProvider.get(LifecycleService).applicationStart();
 
+// CAFFeiNE: Expose Import API
+import { ImportClipperService } from '@affine/core/modules/import-clipper';
+import { WorkspaceService } from '@affine/core/modules/workspace';
+
+(window as any).affineImportMarkdown = async (
+  markdown: string,
+  title: string
+) => {
+  const workspaceService = frameworkProvider.get(WorkspaceService);
+  const clipperService = frameworkProvider.get(ImportClipperService);
+  const currentWorkspace = workspaceService.workspace;
+
+  if (!currentWorkspace) {
+    throw new Error('No active workspace');
+  }
+
+  console.log('Starting import for:', title);
+  return await clipperService.importToWorkspace(currentWorkspace.meta, {
+    title,
+    contentMarkdown: markdown,
+    contentHtml: '',
+    attachments: {},
+    workspace: 'select-by-user',
+  });
+};
+
 export function App() {
   return (
     <Suspense>
