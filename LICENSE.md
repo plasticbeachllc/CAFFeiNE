@@ -2,7 +2,7 @@
 
 ## CAFFeiNE License
 
-The CAFFeiNE modifications and additional components are licensed under the MIT License.
+The CAFFeiNE server and all additional components are licensed under the MIT License.
 
 Copyright (c) 2025 Plastic Beach, LLC and friends.
 
