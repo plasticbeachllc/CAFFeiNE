@@ -12,6 +12,7 @@
 - Deliver a **world‑class, self‑hosted server** for CAFFeiNE that is:
   - Robust, performant, and stable.
   - Easy to configure, deploy, and operate on a single node (Ubuntu LTS, Docker).
+  - Step-by-step documentation with template configs for popular hosting services.
   - Architected for **clean extensibility** via plugins and clear public APIs.
 - Make CAFFeiNE a **first‑class headless CMS + AI workspace**:
   - Rich, programmable CRUD APIs over documents, blocks, databases, and object types.
@@ -1343,6 +1344,7 @@ on_ws_message(msg) {
   - [ ] Create Dockerfiles for `gateway`, `core`, `workers`.
   - [ ] Create `docker-compose.yml` for local/self‑host.
   - [ ] Document bare‑metal + systemd setup.
+  - [ ] Provide templated configs for popular hosting services (e.g., Hetzner)
 
 **Exit criteria:** one‑line `docker compose up` or simple binary install yields a usable CAFFeiNE backend with docs for operators.
 
