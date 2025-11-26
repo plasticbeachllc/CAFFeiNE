@@ -2547,11 +2547,9 @@ export interface SubscriptionNotExistsDataType {
 
 export enum SubscriptionPlan {
   AI = 'AI',
-  Enterprise = 'Enterprise',
   Free = 'Free',
   Pro = 'Pro',
   SelfHosted = 'SelfHosted',
-  SelfHostedTeam = 'SelfHostedTeam',
   Team = 'Team',
 }
 

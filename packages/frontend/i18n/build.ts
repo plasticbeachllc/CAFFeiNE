@@ -76,9 +76,12 @@ async function appendErrorI18n() {
   const defFilePath = server.srcPath.join('base/error/def.ts');
 
   if (!defFilePath.exists()) {
-    throw new Error(
-      `Can not find Server I18n error definition file. It's not placed at [${defFilePath.relativePath}].`
+    // In CAFFEiNE OSS the backend server package may be absent.
+    // Skip importing server-side error messages in that case.
+    console.warn(
+      `Skip appending server error i18n: file not found at [${defFilePath.relativePath}].`
     );
+    return;
   }
 
   const { USER_FRIENDLY_ERRORS } = await import(

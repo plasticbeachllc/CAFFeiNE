@@ -4,10 +4,6 @@ export declare class Tokenizer {
   count(content: string, allowedSpecial?: Array<string> | undefined | null): number
 }
 
-export const AFFINE_PRO_LICENSE_AES_KEY: string | undefined | null
-
-export const AFFINE_PRO_PUBLIC_KEY: string | undefined | null
-
 export interface Chunk {
   index: number
   content: string

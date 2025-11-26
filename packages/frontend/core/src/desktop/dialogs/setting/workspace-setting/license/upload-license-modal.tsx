@@ -1,10 +1,7 @@
 import { Button, Modal, notify, useConfirmModal } from '@affine/component';
 import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
 import { Upload } from '@affine/core/components/pure/file-upload';
-import {
-  SelfhostLicenseService,
-  WorkspaceSubscriptionService,
-} from '@affine/core/modules/cloud';
+import { WorkspaceSubscriptionService } from '@affine/core/modules/cloud';
 import { WorkspacePermissionService } from '@affine/core/modules/permissions';
 import { WorkspaceQuotaService } from '@affine/core/modules/quota';
 import { WorkspaceService } from '@affine/core/modules/workspace';
@@ -27,7 +24,6 @@ export const UploadLicenseModal = ({
   const t = useI18n();
   const workspaceService = useService(WorkspaceService);
   const workspace = workspaceService.workspace;
-  const licenseService = useService(SelfhostLicenseService);
   const quotaService = useService(WorkspaceQuotaService);
   const workspaceSubscriptionService = useService(WorkspaceSubscriptionService);
   const permission = useService(WorkspacePermissionService).permission;
@@ -38,15 +34,14 @@ export const UploadLicenseModal = ({
     permission.revalidate();
     quotaService.quota.revalidate();
     workspaceSubscriptionService.subscription.revalidate();
-    licenseService.revalidate();
-  }, [licenseService, permission, quotaService, workspaceSubscriptionService]);
+    workspaceSubscriptionService.subscription.revalidate();
+  }, [permission, quotaService, workspaceSubscriptionService]);
 
   const handleInstallLicense = useAsyncCallback(
-    async (file: File) => {
+    async (_file: File) => {
       setIsInstalling(true);
       try {
-        await licenseService.installLicense(workspace.id, file);
-        revalidate();
+        // License installation is disabled in CAFFeiNE build.
         onOpenChange(false);
         openConfirmModal({
           title:
@@ -90,14 +85,7 @@ export const UploadLicenseModal = ({
       }
       setIsInstalling(false);
     },
-    [
-      licenseService,
-      onOpenChange,
-      openConfirmModal,
-      revalidate,
-      t,
-      workspace.id,
-    ]
+    [onOpenChange, openConfirmModal, revalidate, t, workspace.id]
   );
 
   const handleOpenChange = useCallback(

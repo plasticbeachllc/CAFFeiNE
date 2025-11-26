@@ -77,7 +77,7 @@ export const useWorkspaceSettingList = (): SettingSidebarItem[] => {
 
   const showBilling =
     !isSelfhosted && information?.isTeam && information?.isOwner;
-  const showLicense = information?.isOwner && isSelfhosted;
+  const showLicense = false;
   const items = useMemo<SettingSidebarItem[]>(() => {
     return [
       {

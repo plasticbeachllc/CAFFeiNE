@@ -6,6 +6,16 @@ set -e
 
 echo "☕️ Building CAFFeiNE Server..."
 
+# In the open-source CAFFEiNE repo, the original
+# @affine/server code is not included for licensing reasons.
+# If a server package is not present, skip server build steps.
+if [ ! -d "packages/backend/server" ]; then
+  echo "⚠️  packages/backend/server is not present in this repository."
+  echo "    Server build steps are skipped. Provide your own backend"
+  echo "    image/binary when deploying CAFFEiNE."
+  exit 0
+fi
+
 # 1. Build Server
 echo "📦 Building @affine/server..."
 yarn workspace @affine/server build

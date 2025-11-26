@@ -26,7 +26,7 @@ SOFTWARE.
 
 ---
 
-## AFFiNE License
+## AFFiNE Community Edition License
 
 This project is a fork of [AFFiNE](https://github.com/toeverything/AFFiNE). The original code is licensed as follows:
 

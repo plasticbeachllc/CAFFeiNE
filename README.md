@@ -1,8 +1,10 @@
 # ☕️ CAFFeiNE
 
+![a cup o' joe](https://github.com/plasticbeachllc/CAFFeiNE/blob/main/dev/assets/BANNER.png?raw=true)
+
 **CAFFeiNE** is a fork of [AFFiNE](https://affine.pro) designed to enrich the self-hosted experience with a primary focus on **AI interoperability**.
 
-While AFFiNE provides a fantastic local-first workspace, CAFFeiNE extends it to be more friendly to AI agents, automated workflows, and headless operations while preserving user control, privacy, and flexibility.
+AFFiNE provides a fantastic local-first workspace, and CAFFeiNE extends it to be more friendly to AI agents, automated workflows, and headless operations while preserving user control, privacy, and flexibility.
 
 ## ⚡️ CAFFeiNE vs. AFFiNE
 
@@ -58,11 +60,11 @@ CAFFeiNE is designed to be a drop-in replacement for your existing AFFiNE server
 docker build -f Dockerfile.caffeine -t caffeine-server .
 ```
 
-## 📄 License
+## 📄 Licensing & Acknowledgments
 
-CAFFeiNE is free and open-source software.
+CAFFeiNE is free and open-source software ("FOSS").
 
-- **CAFFeiNE Modifications**: MIT License (Copyright Plastic Beach, LLC)
-- **Original AFFiNE Code**: MIT License (Copyright TOEVERYTHING PTE. LTD.)
+- **CAFFeiNE**: MIT License (Copyright Plastic Beach, LLC)
+- **AFFiNE Community Edition**: MIT License (Copyright TOEVERYTHING PTE. LTD.)
 
 See [LICENSE.md](LICENSE.md) for full details.
