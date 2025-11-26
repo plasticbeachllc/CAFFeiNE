@@ -1,6 +1,6 @@
 # CAFFeiNE
 
-![a cup o' joe](https://github.com/plasticbeachllc/CAFFeiNE/blob/main/dev/assets/BANNER.png?raw=true)
+![a cup o' joe](https://github.com/plasticbeachllc/CAFFeiNE/blob/main/dev/assets/LOGO.png?raw=true)
 
 **CAFFeiNE** is a fork of [AFFiNE](https://affine.pro) designed to enrich the self-hosted experience with a primary focus on **AI interoperability**.
 
@@ -8,7 +8,7 @@ AFFiNE provides a fantastic knowledge management application; CAFFeiNE will be a
 
 ## ⚡️ CAFFeiNE vs. AFFiNE
 
-While AFFiNE delivers a rich UI experience, CAFFeiNE will provide a self-hosted AFFiNE-compatible backend that also enables automated and AI-driven workflows.
+While AFFiNE delivers a rich UI experience, it does not provide any programmatic knowledge access when using a self-hosted server. CAFFeiNE will provide a self-hosted AFFiNE-compatible backend that also enables automated and AI-driven workflows.
 
 ## 👍🏽 What makes CAFFeiNE different
 
