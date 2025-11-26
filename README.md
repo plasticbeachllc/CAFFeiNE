@@ -34,7 +34,7 @@ docker build -f Dockerfile.caffeine -t caffeine-server .
 
 ## 📄 Licensing & Acknowledgments
 
-CAFFeiNE is a cleanroom implementation of a hosted server compatible with AFFiNE's open-source "Community Edition."
+CAFFeiNE is a cleanroom implementation of a self-hosted server compatible with AFFiNE's open-source "Community Edition."
 
 - **CAFFeiNE**: MIT License (Copyright Plastic Beach, LLC)
 - **AFFiNE Community Edition**: MIT License (Copyright TOEVERYTHING PTE. LTD.)
