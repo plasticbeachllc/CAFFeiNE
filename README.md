@@ -1,4 +1,4 @@
-# ☕️ CAFFeiNE
+# CAFFeiNE
 
 ![a cup o' joe](https://github.com/plasticbeachllc/CAFFeiNE/blob/main/dev/assets/BANNER.png?raw=true)
 
@@ -16,11 +16,11 @@ While AFFiNE delivers a rich UI experience, CAFFeiNE will provide a self-hosted 
    Your workspace is queryable and writable through GraphQL and REST APIs.
 
 2. **Self-hosted, no compromises**  
-   Easy to deploy and runs comfortably on a Raspberry Pi or a small VPS.
+   Easy to deploy and configure; runs comfortably on a Raspberry Pi or a small VPS.
 
 ## 📦 Installation & Deployment
 
-CAFFeiNE is designed to be trivial to deploy and configure. It will work as a drop-in replacement for your existing self-hosted AFFiNE server. For more information, see the [Deployment Guide](docs/DEPLOY_CAFFeiNE.md)
+CAFFeiNE is designed to be trivial to set up. It will work as a drop-in replacement for any existing self-hosted AFFiNE server. For more information, see the [Deployment Guide](docs/DEPLOY_CAFFeiNE.md).
 
 ## 🏗 Building from Source
 
@@ -34,7 +34,7 @@ docker build -f Dockerfile.caffeine -t caffeine-server .
 
 ## 📄 Licensing & Acknowledgments
 
-CAFFeiNE is free and open-source software that begins its life as a fork of AFFiNE's "Community Edition."
+CAFFeiNE is a cleanroom implementation of a hosted server compatible with AFFiNE's open-source "Community Edition."
 
 - **CAFFeiNE**: MIT License (Copyright Plastic Beach, LLC)
 - **AFFiNE Community Edition**: MIT License (Copyright TOEVERYTHING PTE. LTD.)
